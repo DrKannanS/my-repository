@@ -1,0 +1,30 @@
+# Site title and description
+title: Your Site Title
+description: A brief description of your site.
+
+# Theme
+theme: jekyll-theme-cayman
+
+# Author information
+author:
+  name: Dr. Kannan S
+  email: your-email@example.com
+
+# URL settings
+baseurl: "" # Leave empty unless your site is in a subdirectory
+url: "https://DrKannanS.github.io" # Replace with your GitHub Pages site URL
+
+# Markdown settings
+markdown: kramdown
+
+# Exclude files or directories from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Plugins (optional)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
