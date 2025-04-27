@@ -2,6 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Protected Page</title>
+
+  <!-- Prevent search engines -->
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    async function hashPassword(password) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(hashBuffer))
+                  .map(b => b.toString(16).padStart(2, '0'))
+                  .join('');
+    }
+    (async () => {
+      const correctHash = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824";
+      const input = prompt("Enter password:");
+      const inputHash = await hashPassword(input);
+
+      if (inputHash !== correctHash) {
+        document.body.innerHTML = "Access Denied";
+      }
+    })();
+  </script>
+ 
+  <meta charset="UTF-8">
   <title>Kannan Srinivasan - Resume</title>
   <style>
     body {
